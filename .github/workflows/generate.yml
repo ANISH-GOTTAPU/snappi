@@ -77,6 +77,12 @@ jobs:
           format: line-number
           print-issued-lines: true
           timeout: 5m
+      - name: Annotate
+        uses: Attest/annotations-action@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          input: './annotations.json'
+          title: 'Annotate Files'
       - name: Create release and publish artifacts
         if: steps.check_tag.outputs.exists == 'false' && matrix.python-version == '3.6'
         uses: ncipollo/release-action@v1

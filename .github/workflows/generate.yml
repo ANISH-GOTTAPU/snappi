@@ -54,6 +54,7 @@ jobs:
         uses: golangci/golangci-lint-action@v2
         with:
           version: latest
+          working-directory: gosnappi
       - name: Run tests
         run: |
           sudo python do.py test

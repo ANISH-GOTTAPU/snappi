@@ -76,6 +76,7 @@ jobs:
           tests: true
           format: line-number
           print-issued-lines: true
+          timeout: 5m
       - name: Create release and publish artifacts
         if: steps.check_tag.outputs.exists == 'false' && matrix.python-version == '3.6'
         uses: ncipollo/release-action@v1

@@ -50,6 +50,10 @@ jobs:
               echo "No change in auto generated go snappi"
           fi
           echo "::set-output name=sha::$(git rev-parse HEAD)"
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
       - name: Run tests
         run: |
           sudo python do.py test

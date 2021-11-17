@@ -74,7 +74,6 @@ jobs:
           version: latest
           working-directory: gosnappi
           tests: true
-        output:
           print-issued-lines: true
       - name: Create release and publish artifacts
         if: steps.check_tag.outputs.exists == 'false' && matrix.python-version == '3.6'

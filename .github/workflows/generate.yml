@@ -50,11 +50,6 @@ jobs:
               echo "No change in auto generated go snappi"
           fi
           echo "::set-output name=sha::$(git rev-parse HEAD)"
-      - name: golangci-lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          version: latest
-          working-directory: gosnappi
       - name: Run tests
         run: |
           sudo python do.py test
@@ -73,6 +68,11 @@ jobs:
         if: steps.check_tag.outputs.exists == 'false' && matrix.python-version == '3.6'
         run: |
           PYPI_USERNAME=${{ secrets.PYPI_USERNAME }} PYPI_PASSWORD=${{ secrets.PYPI_PASSWORD }} python do.py release
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
+          working-directory: gosnappi
       - name: Create release and publish artifacts
         if: steps.check_tag.outputs.exists == 'false' && matrix.python-version == '3.6'
         uses: ncipollo/release-action@v1

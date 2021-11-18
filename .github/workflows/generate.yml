@@ -53,9 +53,6 @@ jobs:
       - name: Run tests
         run: |
           sudo python do.py test
-      - name: Go Lint
-        run: |
-          python do.py go_lint
       - name: Get package version
         id: get_version
         run: |
@@ -78,6 +75,9 @@ jobs:
           artifacts: "dist/*,models-release,*.proto"
           tag: ${{ steps.get_version.outputs.version }}
           token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Go Lint
+        run: |
+          python do.py go_lint
       - name: Create tag for gosnappi
         if: steps.check_tag.outputs.exists == 'false' && matrix.python-version == '3.6'
         uses: actions/github-script@v3

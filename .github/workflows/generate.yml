@@ -55,7 +55,7 @@ jobs:
           sudo python do.py test
       - name: Go Lint
         run: |
-          python do.py go_lint() 
+          python do.py go_lint
       - name: Get package version
         id: get_version
         run: |

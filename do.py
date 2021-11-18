@@ -124,7 +124,7 @@ def lint():
 
 
 def go_lint():
-    run(["go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.43.0"])
+    run(["go install github.com/golangci/golangci-lint/cmd/golangci-lint"])
     os.chdir("gosnappi")
     run(["golangci-lint run"])
 

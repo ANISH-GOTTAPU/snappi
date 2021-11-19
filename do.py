@@ -125,7 +125,7 @@ def lint():
 
 def go_lint():
     # run(["curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.43.0"])
-    run(["curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh"])
+    run(["go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.43.0"])
     os.chdir("gosnappi")
     run(["golangci-lint run -v --modules-download-mode mod"])
 

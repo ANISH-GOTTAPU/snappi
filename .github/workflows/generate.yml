@@ -77,7 +77,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Go Lint
         run: |
-          python do.py go_lint
+          sudo python do.py go_lint
       - name: Create tag for gosnappi
         if: steps.check_tag.outputs.exists == 'false' && matrix.python-version == '3.6'
         uses: actions/github-script@v3

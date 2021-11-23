@@ -129,7 +129,7 @@ def go_lint():
     # cmd = "curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh"
     # cmd += " | sh -s -- -b $(go env GOPATH)/bin "
     # cmd += golangci_lint_version
-    cmd = "GO111MODULE=on go install github.com/golangci/golangci-lint/cmd/golangci-lint@v"
+    cmd = "GO111MODULE=on go get github.com/golangci/golangci-lint/cmd/golangci-lint@v"
     cmd += golangci_lint_version
     run([cmd])
     os.chdir("gosnappi")

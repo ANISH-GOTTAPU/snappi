@@ -50,6 +50,9 @@ jobs:
               echo "No change in auto generated go snappi"
           fi
           echo "::set-output name=sha::$(git rev-parse HEAD)"
+      - name: Run go lint
+        run: |
+          sudo python do.py go_lint
       - name: Run tests
         run: |
           sudo python do.py test
